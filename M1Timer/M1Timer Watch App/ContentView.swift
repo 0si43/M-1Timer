@@ -8,40 +8,41 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var showTimerView = false
-    @State private var showSettingView = false
+    @State private var path: [TopPath] = []
     var body: some View {
-        NavigationStack {
+        NavigationStack(path: $path) {
             HStack {
                 VStack {
                     Button {
-                        showTimerView = true
+                        path.append(.timer)
                     } label: {
                         Image(systemName: "play")
                             .imageScale(.large)
                     }
                     .tint(.orange)
-                    .navigationDestination(isPresented: $showTimerView, destination: {
-                        TimerView()
-                    })
                     Text("Start")
                     .font(.footnote)
                 }
                 VStack {
                     Button {
-                        showSettingView = true
+                        path.append(.setting)
                     } label: {
                         Image(systemName: "gear")
                             .imageScale(.large)
                     }
-                    .navigationDestination(isPresented: $showSettingView, destination: {
-                        SettingView()
-                    })
                     Text("Setting")
                     .font(.footnote)
                 }
             }
             .navigationTitle("M-1 Timer")
+            .navigationDestination(for: TopPath.self) { path in
+                switch path {
+                case .timer:
+                    TimerView()
+                case .setting:
+                    SettingView()
+                }
+            }
         }
     }
 }

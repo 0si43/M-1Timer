@@ -10,7 +10,7 @@ import SwiftUI
 struct TimerView: View {
     @State var startAnimation = false
     @State var passMinutes: Int = 0
-    @State var totalTime: TimeInterval = 120
+    @State var timeLimit: TimeInterval = 120
     @State var timer: Timer?
     @State var interval: TimeInterval = 60
     var body: some View {
@@ -39,7 +39,7 @@ struct TimerView: View {
                 passMinutes += 1
             }
         }
-        .navigationTitle("\(Int(totalTime / 60)) min")
+        .navigationTitle("\(Int(timeLimit / 60)) min")
     }
 }
 
