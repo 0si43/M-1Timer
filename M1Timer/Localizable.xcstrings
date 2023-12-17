@@ -14,6 +14,9 @@
         }
       }
     },
+    "min" : {
+
+    },
     "Setting" : {
       "extractionState" : "manual",
       "localizations" : {
