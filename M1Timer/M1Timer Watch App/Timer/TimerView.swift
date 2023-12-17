@@ -53,8 +53,9 @@ struct TimerView: View {
         timer?.invalidate()
         timer = nil
         WKInterfaceDevice.current().play(.stop)
-        guard !path.isEmpty else { return }
-        path.removeLast()
+        if let index = path.firstIndex(of: .timer) {
+            path.remove(at: index)
+        }
     }
 }
 
