@@ -9,11 +9,12 @@ import SwiftUI
 
 struct TimerView: View {
     @Binding var path: [Path]
+    var timeLimit: TimeInterval
+    var vibrationInterval: TimeInterval
     @State var startAnimation = false
     @State var passSeconds: TimeInterval = 0
-    @State var timeLimit: TimeInterval = 10
     @State var timer: Timer?
-    @State var interval: TimeInterval = 1
+    
     var body: some View {
         ZStack {
             VStack {
@@ -36,16 +37,16 @@ struct TimerView: View {
         }
         .onAppear {
             startAnimation = true
-            timer = Timer.scheduledTimer(withTimeInterval: interval, repeats: true) { timer in
+            timer = Timer.scheduledTimer(withTimeInterval: vibrationInterval, repeats: true) { timer in
                 WKInterfaceDevice.current().play(.notification)
-                passSeconds += interval
+                passSeconds += vibrationInterval
                 if timeLimit <= passSeconds {
                     endTimer()
                 }
             }
             WKInterfaceDevice.current().play(.start)
         }
-        .navigationTitle("\(Int(timeLimit / 60)) min")
+        .navigationTitle("\(Int(timeLimit / 60)) " + String(localized: "min", defaultValue: "min"))
     }
     
     private func endTimer() {
@@ -61,5 +62,5 @@ struct TimerView: View {
 
 #Preview {
     @State var path = [Path.timer]
-    return TimerView(path: $path)
+    return TimerView(path: $path, timeLimit: 120, vibrationInterval: 60)
 }

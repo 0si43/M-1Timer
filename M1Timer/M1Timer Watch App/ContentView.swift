@@ -40,7 +40,7 @@ struct ContentView: View {
             .navigationDestination(for: Path.self) { path in
                 switch path {
                 case .timer:
-                    TimerView(path: $path)
+                    TimerView(path: $path, timeLimit: timeLimit, vibrationInterval: vibrationInterval)
                 case .setting:
                     SettingView(path: $path)
                 case .timeLimit:
