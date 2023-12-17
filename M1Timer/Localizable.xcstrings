@@ -4,6 +4,17 @@
     "%lld min" : {
 
     },
+    "Back to Default" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "デフォルトに戻す"
+          }
+        }
+      }
+    },
     "M-1 Timer" : {
       "localizations" : {
         "ja" : {
