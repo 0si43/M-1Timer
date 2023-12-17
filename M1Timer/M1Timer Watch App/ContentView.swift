@@ -9,6 +9,8 @@ import SwiftUI
 
 struct ContentView: View {
     @State var path: [Path] = []
+    @AppStorage("TimeLimit") var timeLimit: TimeInterval = 120
+    @AppStorage("VibrationInterval") var vibrationInterval: TimeInterval = 60
     var body: some View {
         NavigationStack(path: $path) {
             HStack {
@@ -44,10 +46,9 @@ struct ContentView: View {
                 case .timeLimit:
                     TimeLimitSettingView(path: $path)
                 case .vibrationInterval:
-                    // FIXME: -
-                    TimeLimitSettingView(path: $path)
+                    TimeIntervalSettingView(appStorageValue: $vibrationInterval, path: $path)
                 case .customTimeLimit:
-                    CustomTimeLimitSettingView(path: $path)
+                    TimeIntervalSettingView(appStorageValue: $timeLimit, path: $path)
                 }
             
             }

@@ -1,5 +1,5 @@
 //
-//  CustomTimeLimitSettingView.swift
+//  TimeIntervalSettingView.swift
 //  M1Timer Watch App
 //
 //  Created by Nakajima on 2023/12/17.
@@ -7,8 +7,8 @@
 
 import SwiftUI
 
-struct CustomTimeLimitSettingView: View {
-    @AppStorage("TimeLimit") var timeLimit: TimeInterval = 120
+struct TimeIntervalSettingView: View {
+    @Binding var appStorageValue: TimeInterval
     @Binding var path: [Path]
     @State var minute: Int = 0
     @State var second: Int = 0
@@ -31,24 +31,32 @@ struct CustomTimeLimitSettingView: View {
                 .padding(.horizontal)
             }
             Button {
-                timeLimit = TimeInterval(minute * 60 + second)
-                if let index = path.firstIndex(of: .customTimeLimit),
-                   let parentIndex = path.firstIndex(of: .timeLimit) {
-                    path.remove(at: index)
-                    path.remove(at: parentIndex)
-                }
+                update()
             } label: {
                 Text(String(localized: "Set", defaultValue: "Set"))
             }
             .padding()
             .controlSize(.mini)
         }
-        .navigationTitle(String(localized: "Time Limit", defaultValue: "Time Limit"))
+        .navigationTitle(path.last?.title ?? "")
     }
-        
+     
+    private func update() {
+        appStorageValue = TimeInterval(minute * 60 + second)
+        guard let currentPath = path.last else { return }
+        if let index = path.firstIndex(of: currentPath) {
+            path.remove(at: index)
+        }
+        if case .customTimeLimit = currentPath {
+            if let parentIndex = path.firstIndex(of: .timeLimit) {
+                path.remove(at: parentIndex)
+            }
+        }
+    }
 }
 
 #Preview {
+    @State var timeLimit: TimeInterval = 120
     @State var path = [Path.timeLimit]
-    return CustomTimeLimitSettingView(path: $path)
+    return TimeIntervalSettingView(appStorageValue: $timeLimit, path: $path)
 }
