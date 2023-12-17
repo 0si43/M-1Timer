@@ -8,15 +8,16 @@
 import SwiftUI
 
 struct TimerView: View {
+    @Binding var path: [TopPath]
     @State var startAnimation = false
-    @State var passMinutes: Int = 0
-    @State var timeLimit: TimeInterval = 120
+    @State var passSeconds: TimeInterval = 0
+    @State var timeLimit: TimeInterval = 10
     @State var timer: Timer?
-    @State var interval: TimeInterval = 60
+    @State var interval: TimeInterval = 1
     var body: some View {
         ZStack {
             VStack {
-                Text(String(passMinutes))
+                Text(String(Int(passSeconds / 60)))
                     .font(.system(size: 80))
                     .opacity(startAnimation ? 0.5 : 1)
                     .animation(.linear(duration: 1).repeatForever(autoreverses: false),
@@ -36,13 +37,26 @@ struct TimerView: View {
         .onAppear {
             startAnimation = true
             timer = Timer.scheduledTimer(withTimeInterval: interval, repeats: true) { timer in
-                passMinutes += 1
+                passSeconds += interval
+                if timeLimit <= passSeconds {
+                    endTimer()
+                }
             }
         }
         .navigationTitle("\(Int(timeLimit / 60)) min")
     }
+    
+    private func endTimer() {
+        startAnimation = false
+        timer?.invalidate()
+        timer = nil
+        if path.count > 0 {
+            path.removeLast()
+        }
+    }
 }
 
 #Preview {
-    TimerView()
+    @State var path = [TopPath.timer]
+    return TimerView(path: $path)
 }
