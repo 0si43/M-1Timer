@@ -9,13 +9,33 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        NavigationStack {
+            HStack {
+                VStack {
+                    Button {
+                        // …
+                    } label: {
+                        Image(systemName: "play")
+                            .imageScale(.large)
+                    }
+                    .tint(.orange)
+                    Text("Start")
+                    .font(.footnote)
+                }
+                VStack {
+                    Button {
+                        // …
+                    } label: {
+                        Image(systemName: "gear")
+                            .imageScale(.large)
+                    }
+                    Text("Setting")
+                    .font(.footnote)
+                }
+            }
+//            .padding()
+            .navigationTitle("M-1 Timer")
         }
-        .padding()
     }
 }
 
