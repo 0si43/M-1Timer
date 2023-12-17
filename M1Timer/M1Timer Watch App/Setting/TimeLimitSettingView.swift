@@ -8,14 +8,21 @@
 import SwiftUI
 
 struct TimeLimitSettingView: View {
+    @AppStorage("TimeLimit") var timeLimit: TimeInterval = 120
     @Binding var path: [Path]
     var body: some View {
         List {
-            ForEach(TimeLimit.allCases) { timeLimit in
+            ForEach(DefaultTimeLimit.allCases) { defaultTimeLimit in
                 Button {
-                    // ….
+                    if let interval = defaultTimeLimit.interval {
+                        timeLimit = interval
+                        guard !path.isEmpty else { return }
+                        path.removeLast()
+                    } else {
+                        // …
+                    }
                 } label: {
-                    Text(timeLimit.title)
+                    Text(defaultTimeLimit.title)
                 }
             }
         }

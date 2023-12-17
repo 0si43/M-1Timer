@@ -11,7 +11,7 @@
 		A66E8D692B2E900D0063261B /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A66E8D682B2E900D0063261B /* SettingView.swift */; };
 		A66E8D6B2B2E92820063261B /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = A66E8D6A2B2E92820063261B /* Localizable.xcstrings */; };
 		A692B3752B2EB7D200008A78 /* Path.swift in Sources */ = {isa = PBXBuildFile; fileRef = A692B3742B2EB7D200008A78 /* Path.swift */; };
-		A692B3792B2EC19F00008A78 /* TimeLimit.swift in Sources */ = {isa = PBXBuildFile; fileRef = A692B3782B2EC19F00008A78 /* TimeLimit.swift */; };
+		A692B3792B2EC19F00008A78 /* DefaultTimeLimit.swift in Sources */ = {isa = PBXBuildFile; fileRef = A692B3782B2EC19F00008A78 /* DefaultTimeLimit.swift */; };
 		A692B37B2B2ED5E200008A78 /* TimeLimitSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A692B37A2B2ED5E200008A78 /* TimeLimitSettingView.swift */; };
 		A6B287E82B2D46480035ACF4 /* M1Timer Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = A6B287E72B2D46480035ACF4 /* M1Timer Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		A6B287ED2B2D46480035ACF4 /* M1TimerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B287EC2B2D46480035ACF4 /* M1TimerApp.swift */; };
@@ -66,7 +66,7 @@
 		A66E8D682B2E900D0063261B /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 		A66E8D6A2B2E92820063261B /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		A692B3742B2EB7D200008A78 /* Path.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Path.swift; sourceTree = "<group>"; };
-		A692B3782B2EC19F00008A78 /* TimeLimit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeLimit.swift; sourceTree = "<group>"; };
+		A692B3782B2EC19F00008A78 /* DefaultTimeLimit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultTimeLimit.swift; sourceTree = "<group>"; };
 		A692B37A2B2ED5E200008A78 /* TimeLimitSettingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeLimitSettingView.swift; sourceTree = "<group>"; };
 		A6B287E12B2D46480035ACF4 /* M1Timer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = M1Timer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6B287E72B2D46480035ACF4 /* M1Timer Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "M1Timer Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -119,7 +119,7 @@
 			children = (
 				A66E8D682B2E900D0063261B /* SettingView.swift */,
 				A692B37A2B2ED5E200008A78 /* TimeLimitSettingView.swift */,
-				A692B3782B2EC19F00008A78 /* TimeLimit.swift */,
+				A692B3782B2EC19F00008A78 /* DefaultTimeLimit.swift */,
 			);
 			path = Setting;
 			sourceTree = "<group>";
@@ -350,7 +350,7 @@
 				A66E8D692B2E900D0063261B /* SettingView.swift in Sources */,
 				A6B287EF2B2D46480035ACF4 /* ContentView.swift in Sources */,
 				A692B37B2B2ED5E200008A78 /* TimeLimitSettingView.swift in Sources */,
-				A692B3792B2EC19F00008A78 /* TimeLimit.swift in Sources */,
+				A692B3792B2EC19F00008A78 /* DefaultTimeLimit.swift in Sources */,
 				A6B287ED2B2D46480035ACF4 /* M1TimerApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -33,17 +33,23 @@ struct SettingView: View {
                     Button {
                         path.append(setting.path)
                     } label: {
-                        Text(
-                            String(Int(setting.timeInterval) / 60)
-                            + " min "
-                            + String((Int(setting.timeInterval) % 60))
-                            + " sec"
-                        )
+                        Text(displayTime(setting))
                     }
                 }
             }
         }
         .navigationTitle("Setting")
+    }
+    
+    private func displayTime(_ setting: TimeSetting) -> String {
+        var displayTime = ""
+        displayTime += String(Int(setting.timeInterval) / 60)
+        displayTime += " " + String(localized: "min", defaultValue: "min") + " "
+        if Int(setting.timeInterval) % 60 != 0 {
+            displayTime += String((Int(setting.timeInterval) % 60))
+            displayTime  += " " + String(localized: "sec", defaultValue: "sec") + " "
+        }
+        return displayTime
     }
 }
 
