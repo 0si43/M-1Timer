@@ -102,6 +102,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A692B3762B2EBFD700008A78 /* Timer */ = {
+			isa = PBXGroup;
+			children = (
+				A66E8D662B2E8F760063261B /* TimerView.swift */,
+			);
+			path = Timer;
+			sourceTree = "<group>";
+		};
+		A692B3772B2EBFF000008A78 /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				A66E8D682B2E900D0063261B /* SettingView.swift */,
+			);
+			path = Setting;
+			sourceTree = "<group>";
+		};
 		A6B287DA2B2D46480035ACF4 = {
 			isa = PBXGroup;
 			children = (
@@ -129,9 +145,9 @@
 			children = (
 				A6B287EC2B2D46480035ACF4 /* M1TimerApp.swift */,
 				A6B287EE2B2D46480035ACF4 /* ContentView.swift */,
-				A66E8D662B2E8F760063261B /* TimerView.swift */,
-				A66E8D682B2E900D0063261B /* SettingView.swift */,
 				A692B3742B2EB7D200008A78 /* TopPath.swift */,
+				A692B3762B2EBFD700008A78 /* Timer */,
+				A692B3772B2EBFF000008A78 /* Setting */,
 				A6B287F02B2D46490035ACF4 /* Assets.xcassets */,
 				A6B287F22B2D46490035ACF4 /* Preview Content */,
 			);
