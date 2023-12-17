@@ -46,6 +46,8 @@ struct ContentView: View {
                 case .vibrationInterval:
                     // FIXME: -
                     TimeLimitSettingView(path: $path)
+                case .customTimeLimit:
+                    CustomTimeLimitSettingView(path: $path)
                 }
             
             }

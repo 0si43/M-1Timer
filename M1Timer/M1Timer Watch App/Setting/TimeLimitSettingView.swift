@@ -20,13 +20,14 @@ struct TimeLimitSettingView: View {
                             path.remove(at: index)
                         }
                     } else {
-                        // …
+                        path.append(.customTimeLimit)
                     }
                 } label: {
                     Text(defaultTimeLimit.title)
                 }
             }
         }
+        .navigationTitle(String(localized: "Time Limit", defaultValue: "Time Limit"))
     }
 }
 
