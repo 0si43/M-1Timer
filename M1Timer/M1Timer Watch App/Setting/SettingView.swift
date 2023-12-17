@@ -7,47 +7,42 @@
 
 import SwiftUI
 
+struct TimeSetting: Identifiable {
+    var id = UUID()
+    let name: String
+    let timeInterval: TimeInterval
+}
+
 struct SettingView: View {
-    @AppStorage("Timelimit") var timelimit: TimeInterval = 120
+    @AppStorage("TimeLimit") var timeLimit: TimeInterval = 120
     @AppStorage("VibrationInterval") var vibrationInterval: TimeInterval = 60
-    @State var selectedTimelimit: Timelimit = .two
-    @State var selectedVibrationInterval: TimeInterval = 60
-    
+    private var timeSettings: [TimeSetting] {
+        [
+            TimeSetting(name: "Time Limit", timeInterval: timeLimit),
+            TimeSetting(name: "Vibration Interval", timeInterval: vibrationInterval)
+        ]
+    }
+
     var body: some View {
-        VStack {
-            HStack() {
-                Text("Time\nlimit")
-                Picker("", selection: $selectedTimelimit) {
-                    ForEach(Timelimit.allCases) {
-                        Text($0.title)
-                    }
-                }
-                .onChange(of: selectedTimelimit) {
-                    if let interval = selectedTimelimit.interval {
-                        vibrationInterval = interval
-                    } else {
+        List {
+            ForEach(timeSettings) { setting in
+                VStack(alignment: .leading) {
+                    Text(setting.name)
+                    .font(.footnote)
+                    Button {
                         // …
+                    } label: {
+                        Text(
+                            String(Int(setting.timeInterval) / 60)
+                            + " min "
+                            + String((Int(setting.timeInterval) % 60))
+                            + " sec"
+                        )
                     }
                 }
-                Text("min")
-            }
-            HStack() {
-                Text("Interval")
-                Picker("", selection: $selectedVibrationInterval) {
-                    ForEach(1..<61) {
-                        Text(String($0))
-                    }
-                }
-                .onChange(of: vibrationInterval) {
-                    vibrationInterval = selectedVibrationInterval
-                }
-                Text("sec")
             }
         }
-        .onAppear {
-            selectedTimelimit = Timelimit(interval: timelimit)
-            selectedVibrationInterval = vibrationInterval
-        }
+        .navigationTitle("Setting")
     }
 }
 
