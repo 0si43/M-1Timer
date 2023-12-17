@@ -21,10 +21,24 @@
       }
     },
     "min" : {
-
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "分"
+          }
+        }
+      }
     },
     "sec" : {
-
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "秒"
+          }
+        }
+      }
     },
     "Setting" : {
       "extractionState" : "manual",
@@ -48,8 +62,15 @@
         }
       }
     },
-    "Time\nlimit" : {
-
+    "Time limit" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "制限時間"
+          }
+        }
+      }
     }
   },
   "version" : "1.0"
