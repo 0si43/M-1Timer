@@ -14,6 +14,7 @@
 		A692B3792B2EC19F00008A78 /* DefaultTimeLimit.swift in Sources */ = {isa = PBXBuildFile; fileRef = A692B3782B2EC19F00008A78 /* DefaultTimeLimit.swift */; };
 		A692B37B2B2ED5E200008A78 /* TimeLimitSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A692B37A2B2ED5E200008A78 /* TimeLimitSettingView.swift */; };
 		A692B37F2B2EEB1E00008A78 /* TimeIntervalSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A692B37E2B2EEB1E00008A78 /* TimeIntervalSettingView.swift */; };
+		A692B3822B2F03DE00008A78 /* ExtendedRuntimeSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = A692B3812B2F03DE00008A78 /* ExtendedRuntimeSession.swift */; };
 		A6B287E82B2D46480035ACF4 /* M1Timer Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = A6B287E72B2D46480035ACF4 /* M1Timer Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		A6B287ED2B2D46480035ACF4 /* M1TimerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B287EC2B2D46480035ACF4 /* M1TimerApp.swift */; };
 		A6B287EF2B2D46480035ACF4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B287EE2B2D46480035ACF4 /* ContentView.swift */; };
@@ -70,6 +71,8 @@
 		A692B3782B2EC19F00008A78 /* DefaultTimeLimit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultTimeLimit.swift; sourceTree = "<group>"; };
 		A692B37A2B2ED5E200008A78 /* TimeLimitSettingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeLimitSettingView.swift; sourceTree = "<group>"; };
 		A692B37E2B2EEB1E00008A78 /* TimeIntervalSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeIntervalSettingView.swift; sourceTree = "<group>"; };
+		A692B3802B2F009300008A78 /* M1Timer-Watch-App-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "M1Timer-Watch-App-Info.plist"; sourceTree = SOURCE_ROOT; };
+		A692B3812B2F03DE00008A78 /* ExtendedRuntimeSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtendedRuntimeSession.swift; sourceTree = "<group>"; };
 		A6B287E12B2D46480035ACF4 /* M1Timer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = M1Timer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6B287E72B2D46480035ACF4 /* M1Timer Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "M1Timer Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6B287EC2B2D46480035ACF4 /* M1TimerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = M1TimerApp.swift; sourceTree = "<group>"; };
@@ -112,6 +115,7 @@
 			isa = PBXGroup;
 			children = (
 				A66E8D662B2E8F760063261B /* TimerView.swift */,
+				A692B3812B2F03DE00008A78 /* ExtendedRuntimeSession.swift */,
 			);
 			path = Timer;
 			sourceTree = "<group>";
@@ -152,6 +156,7 @@
 		A6B287EB2B2D46480035ACF4 /* M1Timer Watch App */ = {
 			isa = PBXGroup;
 			children = (
+				A692B3802B2F009300008A78 /* M1Timer-Watch-App-Info.plist */,
 				A6B287EC2B2D46480035ACF4 /* M1TimerApp.swift */,
 				A6B287EE2B2D46480035ACF4 /* ContentView.swift */,
 				A692B3742B2EB7D200008A78 /* Path.swift */,
@@ -350,6 +355,7 @@
 			files = (
 				A692B3752B2EB7D200008A78 /* Path.swift in Sources */,
 				A66E8D672B2E8F760063261B /* TimerView.swift in Sources */,
+				A692B3822B2F03DE00008A78 /* ExtendedRuntimeSession.swift in Sources */,
 				A692B37F2B2EEB1E00008A78 /* TimeIntervalSettingView.swift in Sources */,
 				A66E8D692B2E900D0063261B /* SettingView.swift in Sources */,
 				A6B287EF2B2D46480035ACF4 /* ContentView.swift in Sources */,
@@ -522,6 +528,7 @@
 				DEVELOPMENT_TEAM = JDTR4Y333X;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "M1Timer-Watch-App-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = M1Timer;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_WKWatchOnly = YES;
@@ -537,7 +544,7 @@
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 10.2;
+				WATCHOS_DEPLOYMENT_TARGET = 9.0;
 			};
 			name = Debug;
 		};
@@ -552,6 +559,7 @@
 				DEVELOPMENT_TEAM = JDTR4Y333X;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "M1Timer-Watch-App-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = M1Timer;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_WKWatchOnly = YES;
@@ -568,7 +576,7 @@
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 4;
 				VALIDATE_PRODUCT = YES;
-				WATCHOS_DEPLOYMENT_TARGET = 10.2;
+				WATCHOS_DEPLOYMENT_TARGET = 9.0;
 			};
 			name = Release;
 		};
@@ -622,7 +630,7 @@
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 4;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/M1Timer Watch App.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/M1Timer Watch App";
-				WATCHOS_DEPLOYMENT_TARGET = 10.2;
+				WATCHOS_DEPLOYMENT_TARGET = 9.0;
 			};
 			name = Debug;
 		};
@@ -644,7 +652,7 @@
 				TARGETED_DEVICE_FAMILY = 4;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/M1Timer Watch App.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/M1Timer Watch App";
 				VALIDATE_PRODUCT = YES;
-				WATCHOS_DEPLOYMENT_TARGET = 10.2;
+				WATCHOS_DEPLOYMENT_TARGET = 9.0;
 			};
 			name = Release;
 		};
@@ -664,7 +672,7 @@
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 4;
 				TEST_TARGET_NAME = "M1Timer Watch App";
-				WATCHOS_DEPLOYMENT_TARGET = 10.2;
+				WATCHOS_DEPLOYMENT_TARGET = 9.0;
 			};
 			name = Debug;
 		};
@@ -685,7 +693,7 @@
 				TARGETED_DEVICE_FAMILY = 4;
 				TEST_TARGET_NAME = "M1Timer Watch App";
 				VALIDATE_PRODUCT = YES;
-				WATCHOS_DEPLOYMENT_TARGET = 10.2;
+				WATCHOS_DEPLOYMENT_TARGET = 9.0;
 			};
 			name = Release;
 		};
