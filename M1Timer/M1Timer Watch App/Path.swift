@@ -10,6 +10,7 @@ import Foundation
 enum Path {
     case timer, setting
     case timeLimit, vibrationInterval
+    case customTimeLimit
     
     var title: String {
         switch self {
@@ -17,6 +18,7 @@ enum Path {
         case .setting: ""
         case .timeLimit: String(localized: "Time Limit", defaultValue: "Time Limit")
         case .vibrationInterval: String(localized: "Vibration Interval", defaultValue: "Vibration Interval")
+        case .customTimeLimit: String(localized: "Time Limit", defaultValue: "Time Limit")
         }
     }
 

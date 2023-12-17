@@ -38,7 +38,7 @@ struct SettingView: View {
                 }
             }
         }
-        .navigationTitle("Setting")
+        .navigationTitle(String(localized: "Setting", defaultValue: "Setting"))
     }
     
     private func displayTime(_ setting: TimeSetting) -> String {
