@@ -16,8 +16,9 @@ struct TimeLimitSettingView: View {
                 Button {
                     if let interval = defaultTimeLimit.interval {
                         timeLimit = interval
-                        guard !path.isEmpty else { return }
-                        path.removeLast()
+                        if let index = path.firstIndex(of: .timeLimit) {
+                            path.remove(at: index)
+                        }
                     } else {
                         // …
                     }
