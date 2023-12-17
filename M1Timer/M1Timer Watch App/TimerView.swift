@@ -37,11 +37,13 @@ struct TimerView: View {
         .onAppear {
             startAnimation = true
             timer = Timer.scheduledTimer(withTimeInterval: interval, repeats: true) { timer in
+                WKInterfaceDevice.current().play(.notification)
                 passSeconds += interval
                 if timeLimit <= passSeconds {
                     endTimer()
                 }
             }
+            WKInterfaceDevice.current().play(.start)
         }
         .navigationTitle("\(Int(timeLimit / 60)) min")
     }
@@ -50,6 +52,7 @@ struct TimerView: View {
         startAnimation = false
         timer?.invalidate()
         timer = nil
+        WKInterfaceDevice.current().play(.stop)
         if path.count > 0 {
             path.removeLast()
         }
