@@ -1,6 +1,7 @@
 {
   "images" : [
     {
+      "filename" : "M-1 Timer AppIcon.png",
       "idiom" : "universal",
       "platform" : "watchos",
       "size" : "1024x1024"
