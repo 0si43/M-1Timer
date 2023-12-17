@@ -11,6 +11,7 @@ struct TimerView: View {
     @Binding var path: [Path]
     var timeLimit: TimeInterval
     var vibrationInterval: TimeInterval
+    @StateObject var extendedRuntimeSession = ExtendedRuntimeSession()
     @State var startAnimation = false
     @State var passSeconds: TimeInterval = 0
     @State var timer: Timer?
@@ -36,20 +37,30 @@ struct TimerView: View {
                            value: startAnimation)
         }
         .onAppear {
-            startAnimation = true
-            timer = Timer.scheduledTimer(withTimeInterval: vibrationInterval, repeats: true) { timer in
-                WKInterfaceDevice.current().play(.notification)
-                passSeconds += vibrationInterval
-                if timeLimit <= passSeconds {
-                    endTimer()
-                }
-            }
-            WKInterfaceDevice.current().play(.start)
+            start()
+        }
+        .onDisappear {
+            end()
         }
         .navigationTitle("\(Int(timeLimit / 60)) " + String(localized: "min", defaultValue: "min"))
     }
     
-    private func endTimer() {
+    private func start() {
+        extendedRuntimeSession.sessionEndCompletion = end
+        extendedRuntimeSession.startSession()
+        startAnimation = true
+        timer = Timer.scheduledTimer(withTimeInterval: vibrationInterval, repeats: true) { timer in
+            WKInterfaceDevice.current().play(.notification)
+            passSeconds += vibrationInterval
+            if timeLimit <= passSeconds {
+                end()
+            }
+        }
+        WKInterfaceDevice.current().play(.start)
+    }
+    
+    private func end() {
+        extendedRuntimeSession.endSession()
         startAnimation = false
         timer?.invalidate()
         timer = nil
