@@ -1,10 +1,13 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "" : {
+
+    },
     "%lld min" : {
 
     },
-    "Hello, World!" : {
+    "Interval" : {
 
     },
     "M-1 Timer" : {
@@ -18,6 +21,9 @@
       }
     },
     "min" : {
+
+    },
+    "sec" : {
 
     },
     "Setting" : {
@@ -41,6 +47,9 @@
           }
         }
       }
+    },
+    "Time\nlimit" : {
+
     }
   },
   "version" : "1.0"
