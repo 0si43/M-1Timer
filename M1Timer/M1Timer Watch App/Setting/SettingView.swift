@@ -9,17 +9,18 @@ import SwiftUI
 
 struct TimeSetting: Identifiable {
     var id = UUID()
-    let name: String
+    let path: Path
     let timeInterval: TimeInterval
 }
 
 struct SettingView: View {
+    @Binding var path: [Path]
     @AppStorage("TimeLimit") var timeLimit: TimeInterval = 120
     @AppStorage("VibrationInterval") var vibrationInterval: TimeInterval = 60
     private var timeSettings: [TimeSetting] {
         [
-            TimeSetting(name: "Time Limit", timeInterval: timeLimit),
-            TimeSetting(name: "Vibration Interval", timeInterval: vibrationInterval)
+            TimeSetting(path: .timeLimit, timeInterval: timeLimit),
+            TimeSetting(path: .vibrationInterval, timeInterval: vibrationInterval)
         ]
     }
 
@@ -27,10 +28,10 @@ struct SettingView: View {
         List {
             ForEach(timeSettings) { setting in
                 VStack(alignment: .leading) {
-                    Text(setting.name)
+                    Text(setting.path.title)
                     .font(.footnote)
                     Button {
-                        // …
+                        path.append(setting.path)
                     } label: {
                         Text(
                             String(Int(setting.timeInterval) / 60)
@@ -47,5 +48,6 @@ struct SettingView: View {
 }
 
 #Preview {
-    SettingView()
+    @State var path = [Path.setting]
+    return SettingView(path: $path)
 }

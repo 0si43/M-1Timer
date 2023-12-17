@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State var path: [TopPath] = []
+    @State var path: [Path] = []
     var body: some View {
         NavigationStack(path: $path) {
             HStack {
@@ -35,13 +35,19 @@ struct ContentView: View {
                 }
             }
             .navigationTitle("M-1 Timer")
-            .navigationDestination(for: TopPath.self) { path in
+            .navigationDestination(for: Path.self) { path in
                 switch path {
                 case .timer:
                     TimerView(path: $path)
                 case .setting:
-                    SettingView()
+                    SettingView(path: $path)
+                case .timeLimit:
+                    TimeLimitSettingView(path: $path)
+                case .vibrationInterval:
+                    // FIXME: -
+                    TimeLimitSettingView(path: $path)
                 }
+            
             }
         }
     }

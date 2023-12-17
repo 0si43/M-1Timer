@@ -1,13 +1,7 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
-    "" : {
-
-    },
     "%lld min" : {
-
-    },
-    "Interval" : {
 
     },
     "M-1 Timer" : {
@@ -31,6 +25,7 @@
       }
     },
     "sec" : {
+      "extractionState" : "stale",
       "localizations" : {
         "ja" : {
           "stringUnit" : {
@@ -63,6 +58,7 @@
       }
     },
     "Time limit" : {
+      "extractionState" : "stale",
       "localizations" : {
         "ja" : {
           "stringUnit" : {
