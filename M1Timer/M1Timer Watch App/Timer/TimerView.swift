@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct TimerView: View {
-    @Binding var path: [TopPath]
+    @Binding var path: [Path]
     @State var startAnimation = false
     @State var passSeconds: TimeInterval = 0
     @State var timeLimit: TimeInterval = 10
@@ -60,6 +60,6 @@ struct TimerView: View {
 }
 
 #Preview {
-    @State var path = [TopPath.timer]
+    @State var path = [Path.timer]
     return TimerView(path: $path)
 }
