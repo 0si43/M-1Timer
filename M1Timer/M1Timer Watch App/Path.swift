@@ -15,8 +15,8 @@ enum Path {
         switch self {
         case .timer: ""
         case .setting: ""
-        case .timeLimit: "Time Limit"
-        case .vibrationInterval: "Vibration Interval"
+        case .timeLimit: String(localized: "Time Limit", defaultValue: "Time Limit")
+        case .vibrationInterval: String(localized: "Vibration Interval", defaultValue: "Vibration Interval")
         }
     }
 
