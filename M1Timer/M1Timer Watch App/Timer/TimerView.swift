@@ -50,7 +50,7 @@ struct TimerView: View {
         extendedRuntimeSession.startSession()
         startAnimation = true
         timer = Timer.scheduledTimer(withTimeInterval: vibrationInterval, repeats: true) { timer in
-            WKInterfaceDevice.current().play(.notification)
+            WKInterfaceDevice.current().play(.directionUp)
             passSeconds += vibrationInterval
             if timeLimit <= passSeconds {
                 end()
